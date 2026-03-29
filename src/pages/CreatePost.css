@@ -1,0 +1,150 @@
+/* Container chính bọc toàn bộ trang */
+div[style*="padding: 20px"] {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    padding: 40px !important;
+}
+
+/* Tiêu đề Create Post */
+h1 {
+    font-size: 2rem;
+    color: #2d3436;
+    margin-bottom: 30px;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(to right, #6c5ce7, #a29bfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Form layout */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ô nhập tiêu đề */
+input[placeholder="Title"] {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #f1f2f6;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[placeholder="Title"]:focus {
+    border-color: #6c5ce7;
+    background: #f9f8ff;
+}
+
+/* Ô nhập nội dung */
+textarea {
+    width: 100%;
+    min-height: 200px;
+    padding: 15px 20px;
+    border: 2px solid #f1f2f6;
+    border-radius: 12px;
+    font-size: 1rem;
+    line-height: 1.6;
+    outline: none;
+    resize: vertical;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+textarea:focus {
+    border-color: #6c5ce7;
+    background: #f9f8ff;
+}
+
+/* Input chọn file (Làm cho nó trông gọn gàng hơn) */
+input[type="file"] {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #636e72;
+}
+
+/* Danh sách ảnh xem trước */
+.preview-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.preview-item {
+    position: relative;
+    height: 120px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Nút Xóa ảnh (✖) */
+.preview-item button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 118, 117, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.preview-item button:hover {
+    background: #d63031;
+    transform: scale(1.1);
+}
+
+/* Nút Submit (Create) */
+form>button {
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.3);
+}
+
+form>button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+}
+
+form>button:disabled {
+    background: #b2bec3;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Xóa các thẻ <br> thừa thãi về mặt hiển thị */
+br {
+    display: none;
+}

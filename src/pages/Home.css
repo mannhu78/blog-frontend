@@ -1,0 +1,68 @@
+/* Tổng thể trang */
+body {
+    background-color: #f0f2f5;
+    /* Màu nền nhẹ nhàng, hiện đại */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1c1e21;
+    margin: 0;
+}
+
+/* Container chính (thẻ div bọc ngoài cùng) */
+div[style*="max-width: 600px"] {
+    background: #ffffff;
+    min-height: 100vh;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 15px 15px;
+    /* Ghi đè padding nếu cần */
+    padding-top: 40px !important;
+}
+
+/* Tiêu đề 📘 Blog Feed */
+h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1877f2;
+    /* Màu xanh năng động */
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: -0.5px;
+}
+
+/* Trạng thái trống */
+p {
+    text-align: center;
+    color: #65676b;
+    font-size: 16px;
+    margin-top: 40px;
+    font-style: italic;
+}
+
+/* Tùy chỉnh cho PostCard (giả định PostCard render ra một thẻ div) */
+/* CSS này sẽ áp dụng cho các con trực tiếp của container bài viết */
+div[style*="max-width: 600px"]>div:not(h1) {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #dddfe2;
+    padding: 15px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+div[style*="max-width: 600px"]>div:not(h1):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive cho mobile */
+@media (max-width: 600px) {
+    div[style*="max-width: 600px"] {
+        padding: 15px !important;
+        border-radius: 0;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}

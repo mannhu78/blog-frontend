@@ -1,0 +1,107 @@
+/* 1. Thiết kế nền toàn trang (nếu chưa có ở App.css) */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+/* 2. Container chính (Ghi đè thẻ div style={{padding: "20px"}}) */
+div[style*="padding: 20px"] {
+    background: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    /* Độ rộng chuẩn cho form Login */
+    padding: 40px !important;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: slideUp 0.6s ease-out;
+}
+
+/* 3. Tiêu đề Login */
+h1 {
+    font-size: 2.2rem;
+    color: #2d3436;
+    margin-bottom: 30px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* 4. Tùy chỉnh các ô Input */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 16px 20px;
+    margin: 0;
+    /* Xóa margin mặc định */
+    border: 2px solid #edf2f7;
+    border-radius: 14px;
+    font-size: 1rem;
+    background: #f8fafc;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    /* Quan trọng để không bị tràn chiều rộng */
+    outline: none;
+}
+
+input:focus {
+    border-color: #6c5ce7;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.1);
+}
+
+/* 5. Nút bấm Login */
+button {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.2);
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(108, 92, 231, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* 6. Xử lý các thẻ <br> thừa */
+br {
+    display: block;
+    content: "";
+    margin-top: 5px;
+}
+
+/* 7. Hiệu ứng mượt mà khi vào trang */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hỗ trợ Responsive cho điện thoại nhỏ */
+@media (max-width: 480px) {
+    div[style*="padding: 20px"] {
+        max-width: 85%;
+        padding: 30px !important;
+    }
+}

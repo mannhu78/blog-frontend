@@ -1,0 +1,227 @@
+/* 1. Tổng thể Card bài viết */
+.post-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+    border: 1px solid #f0f2f5;
+}
+
+/* 2. Header (Avatar + Username) */
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #f0f2f5;
+    border: 2px solid #6c5ce7;
+}
+
+.username {
+    font-weight: 700;
+    color: #2d3436;
+    font-size: 1rem;
+}
+
+.time {
+    font-size: 0.8rem;
+    color: #636e72;
+}
+
+.user-link {
+    text-decoration: none;
+}
+
+/* 3. Nội dung bài viết */
+.post-card h3 {
+    margin: 10px 0;
+    font-size: 1.25rem;
+    color: #2d3436;
+}
+
+.post-content {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #4a4a4a;
+    margin-bottom: 15px;
+}
+
+/* 4. Hệ thống Grid Ảnh (Năng động) */
+.post-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.post-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.post-image:hover {
+    opacity: 0.9;
+}
+
+/* Overlay cho ảnh cuối cùng (+n) */
+.image-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 5. Nút bấm Actions (Like, Edit, Delete) */
+.post-actions {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-top: 1px solid #f0f2f5;
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.btn {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background: #f8fafc;
+    color: #636e72;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #e2e8f0;
+}
+
+.btn.like {
+    color: #ef4444;
+    /* Màu đỏ trái tim */
+}
+
+/* 6. Hệ thống Bình luận */
+.comment-item {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.comment-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.comment-item b {
+    font-size: 0.9rem;
+    color: #2d3436;
+}
+
+.comment-item div {
+    font-size: 0.9rem;
+    color: #4a4a4a;
+}
+
+/* Input bình luận */
+input[placeholder*="comment"],
+input[placeholder*="Reply"] {
+    padding: 10px 15px;
+    border: 1px solid #f0f2f5;
+    border-radius: 20px;
+    background: #f0f2f5;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+input:focus {
+    background: #fff;
+    border-color: #6c5ce7;
+}
+
+/* 7. Modal Xem ảnh (Slider) */
+.image-modal,
+.slider-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-image,
+.slider-image {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.nav-btn {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.nav-btn.left {
+    left: 20px;
+}
+
+.nav-btn.right {
+    right: 20px;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}

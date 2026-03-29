@@ -1,0 +1,128 @@
+/* 1. Container chính (Ghi đè div style={{padding: "20px"}}) */
+div[style*="padding: 20px"] {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px !important;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* 2. Nội dung bài viết */
+h1 {
+    font-size: 2.5rem;
+    color: #2d3436;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+/* Nội dung bài viết (thẻ p đầu tiên sau h1) */
+h1+p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #4a4a4a;
+    margin-bottom: 30px;
+    white-space: pre-wrap;
+    /* Giữ nguyên xuống dòng của content */
+}
+
+/* Thông tin tác giả */
+p:contains("Author:"),
+p:last-of-type {
+    font-style: italic;
+    color: #6c5ce7;
+    font-weight: 600;
+    border-left: 4px solid #6c5ce7;
+    padding-left: 15px;
+    margin-bottom: 40px;
+}
+
+/* 3. Phần Bình luận (Comments) */
+h3 {
+    font-size: 1.5rem;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h3::before {
+    content: "💬";
+}
+
+/* Form gửi bình luận */
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+form input {
+    flex: 1;
+    padding: 12px 18px;
+    border: 2px solid #f1f2f6;
+    border-radius: 12px;
+    outline: none;
+    transition: 0.3s;
+}
+
+form input:focus {
+    border-color: #6c5ce7;
+    background: #f9f8ff;
+}
+
+form button {
+    padding: 0 25px;
+    background: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background: #a29bfe;
+    transform: translateY(-2px);
+}
+
+/* 4. Danh sách các bình luận (Ghi đè inline style marginTop: "10px") */
+div[style*="margin-top: 10px"] {
+    background: #f8fafc;
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-bottom: 12px;
+    border: 1px solid #f1f2f6;
+    line-height: 1.5;
+    animation: fadeIn 0.5s ease;
+}
+
+div[style*="margin-top: 10px"] b {
+    color: #2d3436;
+    font-size: 0.95rem;
+    margin-right: 5px;
+}
+
+/* 5. Hiệu ứng */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Loading state */
+h2 {
+    text-align: center;
+    margin-top: 100px;
+    color: #b2bec3;
+    font-weight: 300;
+}

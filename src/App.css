@@ -1,38 +1,58 @@
-.App {
+/* Nền toàn trang - tạo cảm giác sạch sẽ */
+body {
+  background-color: #f4f7f6;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container: Chuyển sang dùng max-width để co giãn trên điện thoại */
+.container {
+  max-width: 800px;
+  /* Nhỏ lại một chút để tập trung vào nội dung */
+  width: 95%;
+  /* Đảm bảo không dính sát mép màn hình điện thoại */
+  margin: 40px auto;
+  padding: 0;
+  /* Padding nên để ở trong card bài viết */
+}
+
+/* Post Card: Làm cho nó "nổi" và mềm mại hơn */
+.post {
+  background: white;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  /* Bo góc mạnh hơn cho trẻ trung */
+
+  /* Đổ bóng kiểu hiện đại: Nhạt nhưng sâu */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+
+  /* Hiệu ứng mượt mà khi di chuột qua */
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.post:hover {
+  transform: translateY(-5px);
+  /* Nhấc nhẹ card lên */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề bài viết */
+.post h2 {
+  margin: 0 0 15px 0;
+  color: #2d3436;
+  font-size: 1.6rem;
+  line-height: 1.3;
+}
+
+/* Để làm nổi bật tiêu đề Blog Feed trong Home.js */
+h1 {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  color: #6c5ce7;
+  /* Màu tím năng động */
+  font-weight: 800;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
