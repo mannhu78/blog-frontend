@@ -29,7 +29,6 @@ function PostCard({ post, user, onDelete = () => { } }) {
     const [visibleReplies, setVisibleReplies] = useState({})
     const [selectedImage, setSelectedImage] = useState(null)
     const [currentIndex, setCurrentIndex] = useState(null)
-    const [posts, setPosts] = useState([])
 
     console.log("IMG:", post.images)
 

@@ -398,7 +398,9 @@ function Profile() {
                             src={
                                 friend.avatar ||
                                 "https://api.dicebear.com/7.x/adventurer/svg?seed=default"
+                                
                             }
+                            alt="avatar"
                             style={{
                                 width: "60px",
                                 height: "60px",

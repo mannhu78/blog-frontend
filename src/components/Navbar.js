@@ -12,7 +12,7 @@ function Navbar() {
     
     
 
-    // 👇 lấy user từ localStorage
+    // lấy user từ localStorage
     const user = JSON.parse(localStorage.getItem("user"))
     const [notifications, setNotifications] = useState([])
 
@@ -25,7 +25,7 @@ function Navbar() {
         }
 
         fetchNoti()
-    }, [])
+    }, [token])
     
     
     useEffect(() => {
