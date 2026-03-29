@@ -88,7 +88,7 @@ function Navbar() {
 
                     {requests.map(user => (
                         <div key={user._id} className="request-item">
-                            <img src={user.avatar} width={40} />
+                            <img src={user.avatar} width={40}  alt="avtar"/>
                             <span>{user.username}</span>
 
                             <button onClick={() => accept(user._id)}>✔</button>

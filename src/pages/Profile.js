@@ -12,7 +12,6 @@ function Profile() {
     const [username, setUsername] = useState("")
     const [bio, setBio] = useState("")
     const [avatar, setAvatar] = useState("")
-    const [file, setFile] = useState(null)
     const [imageSrc, setImageSrc] = useState(null)
     const [croppedBlob, setCroppedBlob] = useState(null)
     const [preview, setPreview] = useState(null)

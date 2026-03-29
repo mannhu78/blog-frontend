@@ -157,7 +157,8 @@ function PostCard({ post, user, onDelete = () => { } }) {
                 <Link to={`/profile/${post.author?._id}`} className="user-link">
                     <img
                         src={post.author?.avatar || defaultAvatar}
-                        className="avatar"
+                        className="avatar" 
+                        alt="avatar"
                     />
                 </Link>
 
@@ -268,7 +269,8 @@ function PostCard({ post, user, onDelete = () => { } }) {
                             <Link to={`/profile/${c.userId?._id}`} className="user-link">
                             <img
                                 src={c.userId?.avatar || defaultAvatar}
-                                className="comment-avatar"
+                                    className="comment-avatar"
+                                    alt="comment-avatar"
                             />
                             </Link>
                             <div>
@@ -294,6 +296,7 @@ function PostCard({ post, user, onDelete = () => { } }) {
                                                 <img
                                                     src={r.userId?.avatar || defaultAvatar}
                                                     className="comment-avatar"
+                                                    alt="comment-avatar"
                                                 />
                                                 <div>
                                                     <b>{r.userId?.username}</b>
@@ -378,6 +381,7 @@ function PostCard({ post, user, onDelete = () => { } }) {
                     <img
                         src={selectedImage}
                         className="modal-image"
+                        alt="modal-image"
                         onClick={(e) => e.stopPropagation()}
                     />
                 </div>
@@ -405,6 +409,7 @@ function PostCard({ post, user, onDelete = () => { } }) {
                     <img
                         src={images[currentIndex]}
                         className="slider-image"
+                        alt="slider-image"
                         onClick={(e) => e.stopPropagation()}
                     />
 
