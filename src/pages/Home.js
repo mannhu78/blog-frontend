@@ -7,6 +7,7 @@ function Home() {
 
     const [posts, setPosts] = useState([])
     const user = JSON.parse(localStorage.getItem("user"))
+    const API = "https://blog-backend-1nh2.onrender.com/api"
 
     // 🗑 DELETE POST
     const deletePost = async (id) => {
@@ -14,7 +15,7 @@ function Home() {
             const token = localStorage.getItem("token")
 
             await axios.delete(
-                `https://blog-backend-1nh2.onrender.com/posts/${id}`,
+                `${API}/posts/${id}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -37,7 +38,7 @@ function Home() {
             const token = localStorage.getItem("token")
 
             const res = await axios.put(
-                `https://blog-backend-1nh2.onrender.com/posts/like/${id}`,
+                `${API}/posts/like/${id}`,
                 {},
                 {
                     headers: {
@@ -59,7 +60,7 @@ function Home() {
 
     // LOAD POSTS
     useEffect(() => {
-        axios.get("https://blog-backend-1nh2.onrender.com/posts")
+        axios.get(`${API}/posts`)
             .then(res => {
                 console.log("POSTS:", res.data) 
                 setPosts(res.data)

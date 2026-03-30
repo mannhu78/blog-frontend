@@ -7,6 +7,7 @@ function Register() {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const API = "https://blog-backend-1nh2.onrender.com/api"
     
 
     const navigate = useNavigate()
@@ -16,7 +17,7 @@ function Register() {
 
         try {
             await axios.post(
-                "http://localhost:5000/auth/register",
+                `${API}/auth/register`,
                 { username, email, password }
             )
 

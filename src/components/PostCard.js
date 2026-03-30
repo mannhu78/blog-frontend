@@ -29,6 +29,7 @@ function PostCard({ post, user, onDelete = () => { } }) {
     const [visibleReplies, setVisibleReplies] = useState({})
     const [selectedImage, setSelectedImage] = useState(null)
     const [currentIndex, setCurrentIndex] = useState(null)
+    const API = "https://blog-backend-1nh2.onrender.com/api"
 
     console.log("IMG:", post.images)
 

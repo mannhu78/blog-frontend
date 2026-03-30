@@ -11,6 +11,7 @@ function CreatePost() {
     const [previews, setPreviews] = useState([])
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
+    const API = "https://blog-backend-1nh2.onrender.com/api"
 
 
     const handleSubmit = async (e) => {
@@ -28,7 +29,7 @@ function CreatePost() {
             }
 
             await axios.post(
-                "https://blog-backend-1nh2.onrender.com/posts",
+                `${API}/posts`,
                 {
                     title,
                     content,

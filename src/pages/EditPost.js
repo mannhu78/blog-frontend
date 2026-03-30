@@ -9,10 +9,11 @@ function EditPost() {
 
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
+    const API = "https://blog-backend-1nh2.onrender.com/api"
 
     // 🔄 load dữ liệu
     useEffect(() => {
-        axios.get(`https://blog-backend-1nh2.onrender.com/posts/${id}`)
+        axios.get(`${API}/posts/${id}`)
             .then(res => {
                 setTitle(res.data.title)
                 setContent(res.data.content)
@@ -20,7 +21,7 @@ function EditPost() {
             .catch(err => console.error(err))
     }, [id])
 
-    // ✏️ update
+    //  update
     const handleUpdate = async (e) => {
         e.preventDefault()
 
@@ -28,7 +29,7 @@ function EditPost() {
             const token = localStorage.getItem("token")
 
             await axios.put(
-                `https://blog-backend-1nh2.onrender.com/posts/${id}`,
+                `${API}/posts/${id}`,
                 { title, content },
                 {
                     headers: {

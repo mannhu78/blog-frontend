@@ -21,6 +21,7 @@ function Profile() {
     const { id } = useParams()
     const [currentUser, setCurrentUser] = useState(null)
     const isMe = currentUser?._id === user?._id
+    const API = "https://blog-backend-1nh2.onrender.com/api"
     
     
     const [status, setStatus] = useState("none")
@@ -32,8 +33,8 @@ function Profile() {
     useEffect(() => {
 
         const url = id
-            ? `https://blog-backend-1nh2.onrender.com/users/${id}`
-            : "https://blog-backend-1nh2.onrender.com/users/me"
+            ? `${API}/users/${id}`
+            : `${API}/users/me`
 
         axios.get(url, {
             headers: { Authorization: `Bearer ${token}` }
@@ -48,7 +49,7 @@ function Profile() {
     }, [id, token])
 
     useEffect(() => {
-        axios.get("https://blog-backend-1nh2.onrender.com/users/me", {
+        axios.get(`${API}/users/me`, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(res => setCurrentUser(res.data))
@@ -79,7 +80,7 @@ function Profile() {
     useEffect(() => {
         if (!user) return
 
-        axios.get(`https://blog-backend-1nh2.onrender.com/posts/user/${user._id}`)
+        axios.get(`${API}/posts/user/${user._id}`)
             .then(res => setPosts(res.data))
     }, [user])
 
@@ -136,7 +137,7 @@ function Profile() {
     const handleAddFriend = async () => {
         try {
             await axios.post(
-                `https://blog-backend-1nh2.onrender.com/users/add-friend/${user._id}`,
+                `${API}/users/add-friend/${user._id}`,
                 {},
                 { headers: { Authorization: `Bearer ${token}` } }
             )
@@ -162,7 +163,7 @@ function Profile() {
             }
 
             const res = await axios.put(
-                "https://blog-backend-1nh2.onrender.com/users/me",
+                `${API}/users/me`,
                 {
                     username,
                     bio,
@@ -195,7 +196,7 @@ function Profile() {
     const handleRemoveAvatar = async () => {
         try {
             const res = await axios.put(
-                "https://blog-backend-1nh2.onrender.com/users/me",
+                `${API}/users/me`,
                 {
                     username,
                     bio,
@@ -225,7 +226,7 @@ function Profile() {
     const handleRemoveFriend = async () => {
         try {
             await axios.post(
-                `https://blog-backend-1nh2.onrender.com/users/remove-friend/${user._id}`,
+                `${API}/users/remove-friend/${user._id}`,
                 {},
                 { headers: { Authorization: `Bearer ${token}` } }
             )
@@ -233,7 +234,7 @@ function Profile() {
             setStatus("none")
 
             // reload currentUser
-            const res = await axios.get("https://blog-backend-1nh2.onrender.com/users/me", {
+            const res = await axios.get(`${API}/users/me`, {
                 headers: { Authorization: `Bearer ${token}` }
             })
 
@@ -252,7 +253,7 @@ function Profile() {
         setPosts(prev => prev.filter(p => p._id !== id))
 
         try {
-            await axios.delete(`https://blog-backend-1nh2.onrender.com/posts/${id}`, {
+            await axios.delete(`${API}/posts/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

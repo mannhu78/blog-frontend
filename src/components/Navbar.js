@@ -9,6 +9,7 @@ function Navbar() {
     const [requests, setRequests] = useState([])
     const [showDropdown, setShowDropdown] = useState(false)
     const token = localStorage.getItem("token")
+    const API = "https://blog-backend-1nh2.onrender.com/api"
     
     
 

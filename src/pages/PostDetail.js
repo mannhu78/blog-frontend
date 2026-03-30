@@ -10,6 +10,7 @@ function PostDetail() {
     const [post, setPost] = useState(null)
     const [comments, setComments] = useState([])   
     const [newComment, setNewComment] = useState("") 
+    const API = "https://blog-backend-1nh2.onrender.com/api"
 
     const handleComment = async (e) => {
         e.preventDefault()
@@ -17,7 +18,7 @@ function PostDetail() {
         const token = localStorage.getItem("token")
 
         const res = await axios.post(
-            "https://blog-backend-1nh2.onrender.com/comments",
+            `${API}/comments`,
             {
                 content: newComment,
                 postId: id
@@ -35,10 +36,10 @@ function PostDetail() {
 
     useEffect(() => {
 
-        axios.get(`https://blog-backend-1nh2.onrender.com/posts/${id}`)
+        axios.get(`${API}/posts/${id}`)
             .then(res => setPost(res.data))
 
-        axios.get(`https://blog-backend-1nh2.onrender.com/comments/${id}`)
+        axios.get(`${API}/comments/${id}`)
             .then(res => setComments(res.data))
 
     }, [id])

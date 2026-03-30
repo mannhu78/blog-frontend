@@ -6,6 +6,7 @@ function Login() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const API = "https://blog-backend-1nh2.onrender.com/api"
 
     const navigate = useNavigate()
 
@@ -14,7 +15,7 @@ function Login() {
 
         try {
             const res = await axios.post(
-                "https://blog-backend-1nh2.onrender.com/auth/login",
+                `${API}/auth/login`,
                 { email, password }
             )
 
