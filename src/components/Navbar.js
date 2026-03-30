@@ -19,7 +19,7 @@ function Navbar() {
 
     useEffect(() => {
         const fetchNoti = async () => {
-            const res = await axios.get("https://blog-backend-1nh2.onrender.com/users/notifications", {
+            const res = await axios.get(`${API}/users/notifications`, {
                 headers: { Authorization: `Bearer ${token}` }
             })
             setNotifications(res.data)
@@ -32,7 +32,7 @@ function Navbar() {
     useEffect(() => {
         if (!token) return
 
-        axios.get("https://blog-backend-1nh2.onrender.com/users/friend-requests", {
+        axios.get(`${API}/users/friend-requests`, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(res => setRequests(res.data))
@@ -48,7 +48,7 @@ function Navbar() {
     }
     const accept = async (id) => {
         await axios.post(
-            `https://blog-backend-1nh2.onrender.com/users/accept-friend/${id}`,
+            `${API}/users/accept-friend/${id}`,
             {},
             {
                 headers: { Authorization: `Bearer ${token}` }

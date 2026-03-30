@@ -61,13 +61,13 @@ function PostCard({ post, user, onDelete = () => { } }) {
         return () => window.removeEventListener("keydown", handleKey)
     }, [currentIndex, images.length])
     
-    // 👉 LOAD COMMENTS
+    //  LOAD COMMENTS
     useEffect(() => {
-        axios.get(`https://blog-backend-1nh2.onrender.com/comments/${post._id}`)
+        axios.get(`${API}/comments/${post._id}`)
             .then(res => setComments(res.data))
     }, [post._id])
 
-    // 👉 ADD COMMENT
+    //  ADD COMMENT
     const handleComment = async () => {
 
         if (!text.trim()) return
@@ -75,7 +75,7 @@ function PostCard({ post, user, onDelete = () => { } }) {
         const token = localStorage.getItem("token")
 
         const res = await axios.post(
-            "https://blog-backend-1nh2.onrender.com/comments",
+            `${API}/comments`,
             {
                 content: text,
                 postId: post._id
@@ -100,7 +100,7 @@ function PostCard({ post, user, onDelete = () => { } }) {
         const token = localStorage.getItem("token")
 
         const res = await axios.put(
-            `https://blog-backend-1nh2.onrender.com/posts/like/${post._id}`,
+            `${API}/posts/like/${post._id}`,
             {},
             {
                 headers: {
@@ -116,7 +116,7 @@ function PostCard({ post, user, onDelete = () => { } }) {
         const token = localStorage.getItem("token")
 
         const res = await axios.post(
-            "https://blog-backend-1nh2.onrender.com/comments",
+            `${API}/comments`,
             {
                 content: replyText[parentId],
                 postId: post._id,
@@ -137,7 +137,7 @@ function PostCard({ post, user, onDelete = () => { } }) {
         const token = localStorage.getItem("token")
 
         const res = await axios.put(
-            `https://blog-backend-1nh2.onrender.com/comments/like/${id}`,
+            `${API}/comments/like/${id}`,
             {},
             {
                 headers: { Authorization: `Bearer ${token}` }
@@ -242,7 +242,7 @@ function PostCard({ post, user, onDelete = () => { } }) {
                 )}
 
             </div>
-            {/* 💬 COMMENTS */}
+            {/*  COMMENTS */}
             <div style={{ marginTop: "15px" }}>
 
                 {/* INPUT */}
@@ -282,7 +282,7 @@ function PostCard({ post, user, onDelete = () => { } }) {
                                 </b>
                                 <div>{c.content}</div>
 
-                                {/* ❤️ LIKE */}
+                                {/*  LIKE */}
                                 <button onClick={() => handleLikeComment(c._id)}>
                                     ❤️ {c.likes?.length || 0}
                                 </button>
@@ -290,7 +290,7 @@ function PostCard({ post, user, onDelete = () => { } }) {
                                 {/* REPLY */}
                                 <div style={{ marginLeft: "20px" }}>
 
-                                    {/* 👉 REPLY LIST */}
+                                    {/*  REPLY LIST */}
                                     {visible.map(r => (
                                         <div key={r._id} style={{ marginTop: "5px" }}>
                                             <div style={{ display: "flex", gap: "8px" }}>
