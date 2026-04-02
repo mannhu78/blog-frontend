@@ -1,154 +1,142 @@
-/* 1. Thiết kế tổng thể thanh Nav */
-nav {
+/* ===== NAVBAR ===== */
+.navbar {
     display: flex;
     align-items: center;
-    justify-content: center;
-    /* Căn giữa các nội dung */
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe) !important;
-    /* Màu tím năng động */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 12px 5% !important;
 }
 
-/* 2. Style cho các đường Link (Home, Create, Profile...) */
-nav a {
+/* ===== MENU ===== */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* LINKS */
+.nav-menu a {
+    color: white;
     text-decoration: none;
     font-weight: 600;
-    font-size: 15px;
-    transition: all 0.3s ease;
-    padding: 8px 15px;
-    border-radius: 8px;
+    padding: 6px 10px;
+    border-radius: 6px;        
 }
 
-nav a:hover {
+.nav-menu a:hover {
     background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
 }
 
-/* 3. Icon thông báo (🔔) */
+/* USER */
+.nav-user {
+    color: white;
+    font-weight: 600;
+}
+
+/* BUTTON */
+.nav-menu button {
+    background: #ff7675;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ===== NOTI ===== */
 .nav-noti {
     position: relative;
     cursor: pointer;
-    font-size: 1.2rem;
-    margin: 0 20px;
-    padding: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
+    font-size: 18px;
 }
 
-.nav-noti:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* Badge số thông báo màu đỏ nổi bật */
 .nav-noti span {
     position: absolute;
-    top: -5px;
-    right: -5px;
-    background: #ff7675;
+    top: -6px;
+    right: -8px;
+    background: red;
     color: white;
     font-size: 10px;
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 10px;
-    border: 2px solid #6c5ce7;
+    padding: 2px 5px;
+    border-radius: 50%;
 }
 
-/* 4. Dropdown lời mời kết bạn */
+/* ===== DROPDOWN ===== */
 .dropdown {
     position: absolute;
     top: 60px;
-    right: 10%;
-    background: white;
+    right: 10px;
     width: 300px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    padding: 15px;
-    animation: fadeIn 0.3s ease;
-    color: #333;
+    max-width: 90vw;
+    background: white;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* ITEM */
 .request-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.request-item:last-child {
-    border: none;
+    gap: 8px;
+    margin-bottom: 10px;
 }
 
 .request-item img {
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #6c5ce7;
 }
 
 .request-item span {
     flex: 1;
-    font-weight: 500;
-    font-size: 14px;
 }
 
-/* 5. Các nút bấm (Logout, ✔, ✖) */
-nav button {
-    cursor: pointer;
-    border: none;
-    border-radius: 6px;
-    transition: 0.2s;
-}
-
-/* Nút Logout */
-nav>button {
-    background: #ff7675;
+/* ===== HAMBURGER ===== */
+.menu-toggle {
+    display: none;
+    font-size: 22px;
     color: white;
-    padding: 8px 16px;
-    font-weight: bold;
+    cursor: pointer;
 }
 
-nav>button:hover {
-    background: #d63031;
-}
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+@media (max-width: 768px) {
 
-/* Nút chấp nhận/từ chối trong dropdown */
-.request-item button {
-    padding: 5px 10px;
-    font-size: 12px;
-}
-
-.request-item button:nth-of-type(1) {
-    background: #55efc4;
-    color: #00b894;
-}
-
-/* Chấp nhận */
-.request-item button:nth-of-type(2) {
-    background: #fab1a0;
-    color: #d63031;
-}
-
-/* Từ chối */
-
-/* 6. Hiệu ứng xuất hiện */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
+    .menu-toggle {
+        display: block;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .nav-menu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu a,
+    .nav-menu button,
+    .nav-user {
+        width: 100%;
+    }
+
+    .dropdown {
+        left: 10px;
+        right: 10px;
+        width: auto;
     }
 }

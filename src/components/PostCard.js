@@ -246,7 +246,7 @@ function PostCard({ post, user, onDelete = () => { } }) {
             <div style={{ marginTop: "15px" }}>
 
                 {/* INPUT */}
-                <div style={{ display: "flex", gap: "10px" }}>
+                <div className="comment-input">
                     <input
                         value={text}
                         onChange={(e) => setText(e.target.value)}

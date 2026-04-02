@@ -1,110 +1,96 @@
-/* 1. Tổng thể Card bài viết */
+/* ===== CARD ===== */
 .post-card {
     background: #fff;
     border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease;
+    padding: 16px;
+    margin-bottom: 20px;
     border: 1px solid #f0f2f5;
+    transition: 0.2s;
 }
 
-/* 2. Header (Avatar + Username) */
+/* ===== HEADER ===== */
 .post-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
+    gap: 10px;
+    margin-bottom: 12px;
 }
 
 .avatar {
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     object-fit: cover;
-    background: #f0f2f5;
     border: 2px solid #6c5ce7;
 }
 
 .username {
     font-weight: 700;
+    font-size: 0.95rem;
     color: #2d3436;
-    font-size: 1rem;
 }
 
 .time {
-    font-size: 0.8rem;
-    color: #636e72;
+    font-size: 0.75rem;
+    color: #888;
 }
 
 .user-link {
     text-decoration: none;
+    color: inherit;
 }
 
-/* 3. Nội dung bài viết */
+/* ===== CONTENT ===== */
 .post-card h3 {
-    margin: 10px 0;
-    font-size: 1.25rem;
-    color: #2d3436;
+    font-size: 1.1rem;
+    margin: 8px 0;
 }
 
 .post-content {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.5;
-    color: #4a4a4a;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
-/* 4. Hệ thống Grid Ảnh (Năng động) */
+/* ===== IMAGES ===== */
 .post-images {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-    border-radius: 12px;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 15px;
 }
 
 .post-image {
     width: 100%;
-    height: 200px;
+    height: 160px;
     object-fit: cover;
     cursor: pointer;
-    transition: opacity 0.3s;
 }
 
-.post-image:hover {
-    opacity: 0.9;
-}
-
-/* Overlay cho ảnh cuối cùng (+n) */
 .image-wrapper {
     position: relative;
-    cursor: pointer;
 }
 
 .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(0, 0, 0, 0.5);
     color: white;
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* 5. Nút bấm Actions (Like, Edit, Delete) */
+/* ===== ACTIONS ===== */
 .post-actions {
     display: flex;
-    gap: 10px;
-    padding: 10px 0;
-    border-top: 1px solid #f0f2f5;
-    border-bottom: 1px solid #f0f2f5;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 8px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }
 
 .btn {
@@ -112,73 +98,69 @@
     padding: 8px;
     border: none;
     border-radius: 8px;
-    background: #f8fafc;
-    color: #636e72;
-    font-weight: 600;
+    background: #f1f5f9;
+    font-size: 0.9rem;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #e2e8f0;
 }
 
 .btn.like {
     color: #ef4444;
-    /* Màu đỏ trái tim */
 }
 
-/* 6. Hệ thống Bình luận */
-.comment-item {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.comment-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-}
-
-.comment-item b {
-    font-size: 0.9rem;
-    color: #2d3436;
-}
-
-.comment-item div {
-    font-size: 0.9rem;
-    color: #4a4a4a;
-}
-
-/* Input bình luận */
-input[placeholder*="comment"],
-input[placeholder*="Reply"] {
-    padding: 10px 15px;
-    border: 1px solid #f0f2f5;
+/* ===== COMMENT INPUT ===== */
+.post-card input {
+    width: 100%;
+    padding: 8px 12px;
     border-radius: 20px;
-    background: #f0f2f5;
-    outline: none;
+    border: 1px solid #eee;
+    background: #f5f5f5;
     font-size: 0.9rem;
 }
 
-input:focus {
+.post-card input:focus {
     background: #fff;
     border-color: #6c5ce7;
 }
 
-/* 7. Modal Xem ảnh (Slider) */
+/* ===== COMMENT ===== */
+.comment-item {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.comment-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.comment-item b {
+    font-size: 0.85rem;
+}
+
+.comment-item div {
+    font-size: 0.85rem;
+}
+
+/* ===== REPLY ===== */
+.comment-item>div {
+    flex: 1;
+}
+
+.comment-item button {
+    font-size: 0.75rem;
+    background: none;
+    border: none;
+    color: #1877f2;
+    cursor: pointer;
+}
+
+/* ===== MODAL ===== */
 .image-modal,
 .slider-modal {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(0, 0, 0, 0.9);
     z-index: 9999;
     display: flex;
@@ -188,40 +170,94 @@ input:focus {
 
 .modal-image,
 .slider-image {
-    max-width: 90%;
+    max-width: 95%;
     max-height: 80%;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .close-btn {
     position: absolute;
-    top: 20px;
-    right: 30px;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
     color: white;
-    font-size: 40px;
-    cursor: pointer;
 }
 
+/* ===== NAV BUTTON ===== */
 .nav-btn {
     position: absolute;
     background: rgba(255, 255, 255, 0.2);
-    color: white;
     border: none;
-    padding: 15px;
-    font-size: 24px;
-    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
     border-radius: 50%;
+    color: white;
 }
 
 .nav-btn.left {
-    left: 20px;
+    left: 10px;
 }
 
 .nav-btn.right {
-    right: 20px;
+    right: 10px;
+}
+.comment-input {
+    display: flex;
+    gap: 8px;
 }
 
-.nav-btn:hover {
-    background: rgba(255, 255, 255, 0.4);
+.comment-input button {
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: none;
+    background: #1877f2;
+    color: white;
+}
+.comment-item>div>div {
+    margin-left: 10px;
+}
+/* ========================= */
+/* 📱 MOBILE FIRST DONE */
+/* ========================= */
+
+
+/* ===== TABLET ===== */
+@media (min-width: 768px) {
+
+    .post-card {
+        padding: 18px;
+    }
+
+    .post-image {
+        height: 200px;
+    }
+
+    .post-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .comment-avatar {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 1024px) {
+
+    .post-card {
+        padding: 20px;
+    }
+
+    .post-images {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .post-image {
+        height: 220px;
+    }
+
+    .btn {
+        font-size: 1rem;
+    }
 }

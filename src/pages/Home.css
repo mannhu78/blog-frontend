@@ -54,7 +54,10 @@ div[style*="max-width: 600px"]>div:not(h1):hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
-
+.feed-container {
+    max-width: 1300px;
+    margin: auto;
+}
 /* Responsive cho mobile */
 @media (max-width: 600px) {
     div[style*="max-width: 600px"] {

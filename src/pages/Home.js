@@ -69,11 +69,7 @@ function Home() {
     }, [])
 
     return (
-        <div style={{
-            padding: "20px",
-            maxWidth: "600px",
-            margin: "0 auto"
-        }}>
+        <div className="feed-container">
 
             <h1>Blog Feed</h1>
 

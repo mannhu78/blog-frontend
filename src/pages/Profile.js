@@ -271,7 +271,7 @@ function Profile() {
     if (!user || !currentUser) return <h2>Loading...</h2>
 
     return (
-        <div style={{ padding: "20px", maxWidth: "500px", margin: "auto" }}>
+        <div className="profile-container">
 
             <h1> Profile</h1>
             <div className="avatar-wrapper">
